@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>JSON Practice </h1>
+    <ul id = "users-container">
+         
+    </ul>
+    
+</body>
+<script>
+
+    fetch('https://jsonplaceholder.typicode.com/users') // fetch the users data from the websites 
+   .then(response => response.json()) // convert the data as object 
+   .then(json => displayUser(json))  // pass to the function 
+
+  function displayUser(users) {
+      console.log("users",users);
+      const userName = users.map(user=>user.username); // take the user Name by using maping 
+
+      const ul = document.getElementById('users-container'); // get the ul by it's id 
+
+      for(let i = 0 ;i<userName.length;i++) {
+          const user  = userName[i]; //assign user name to the user 
+          const li = document.createElement("li"); // create li element 
+          li.innerText = user ; //assign list element as  an innerText 
+          ul.appendChild(li); //append inside the ul element as a child 
+          li.style.color='red';
+          li.style.fontWeight = '900';
+      }
+  }
+
+</script>
+</html>
