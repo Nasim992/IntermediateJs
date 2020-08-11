@@ -31,5 +31,19 @@ const result = numbers.find( x=> x > 5 );
 
 console.log(result);
 
+const students = [
+    { id : 21, name:'Omar Sunny'},
+    { id :24 , name:'Mannna'},
+    { id :34 , name : 'Dipjol'},
+    { id : 89, name : 'Alex'}
+];
+const name = students.map(s=>s.name);
+console.log(name) ;
+const id = students.map(id=>id.id);
+console.log(id);
+const bigger = students.filter(s=>s.id>30);
+console.log(bigger);
+
+
 
 
